@@ -1,0 +1,503 @@
+/* MOBILE AND GLOBAL STYLES */
+
+/* applies to screens smaller than 500px (first breakpoint) */
+/* and above unless overwritten below */
+
+:root {
+  --titleBlue: #020737;
+  --bodyBlue: #0D155F;
+  --navBlue: #1E266F;
+  --hoverPink: #7058C3;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f2f2; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+body {
+  background: var(--bodyBlue);
+  margin: 0;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  height: 4em;
+}
+
+.heading h1 {
+  background: var(--titleBlue);
+  width: 100%;
+  font-size: 2em;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.heading .menu-button {
+  cursor: pointer;
+  background: var(--navBlue);
+  font-size: 1.5em;
+  position: fixed;
+  padding: 0.3em 0.5em;
+  width: 1em;
+  left: 0;
+  z-index: 1;
+}
+
+nav {
+  display: none;
+  justify-content: center;
+  background: var(--navBlue);
+  flex-direction: column;
+  z-index: 1;
+  padding: 0.5em 0;
+}
+
+nav a {
+  padding: 1em 1em;
+  font-size: 1.2em;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.menu-toggle {
+  opacity: 0.95;
+  display: flex;
+  position: fixed;
+  top: 10%;
+  height: 30%;
+  width: 90%;
+  z-index: 1;
+  left: 0;
+}
+
+button {
+  display: block;
+  background-color: var(--navBlue);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+  padding: 10px 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0.5em 0.75em;
+  margin: 0;
+}
+
+figure.destination {
+  cursor: pointer;
+  position: relative;
+  margin: 20px;
+  background: black;
+  border: 2px solid black;
+  box-shadow: 5px 5px var(--navBlue);
+}
+
+figure img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+figcaption {
+  color: #D4C66A;
+  background: rgba(0,0,0,0.4);
+  font-size: 2em;
+  padding: 0.5em 0em;
+  position: absolute;
+  top: calc(150px - 1.5em);
+  left: 0; 
+  right: 0;
+  text-align: center;
+}
+
+figcaption span.title {
+  text-shadow: 2px 2px 4px #000000;
+}
+
+figcaption span.tags {
+  opacity: 0;
+  color: #FFF3AA;
+  font-size: 0.7em;
+  padding: 0.7em;
+  display: block;
+  position: absolute;
+  top: -110px;
+  text-shadow: 2px 2px 4px #000000;
+  width: 90%;
+}
+
+figcaption .destDesc {
+  opacity: 0;
+  color: darkgrey;
+  font-size: 0.7em;
+  padding: 0.7em;
+  display: block;
+  position: absolute;
+  top: -50px;
+  width: 270px; 
+  height: 215px;
+  overflow-y: hidden;
+}
+
+figcaption .readMore { 
+  position: absolute; 
+  color: #FFF3AA;
+  bottom: 0; 
+  left: 0;
+  width: 100%; 
+  text-align: center; 
+  vertical-align: bottom;
+  margin: 0; 
+  padding: 240px 0 10px 0; 
+  background-image: linear-gradient(to bottom, transparent, black);
+}
+
+.selectedDestinationDiv {
+  display: none;
+  color: white;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0.5em 0;
+}
+
+.selectedLocation {
+  display: block;
+  font-size: 2em;
+  padding: 10px 0;
+  text-align: center;
+  background: var(--titleBlue);
+  color: #D4C66A;
+  animation-name: titleGlow;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+.selectedTags {
+  display: block;
+  text-align: center;
+  background: var(--titleBlue);
+  font-size: 1.5em;
+  padding: 10px 0;
+}
+
+.selectedDescription {
+  width: 100%;
+  font-size: 1.2em;
+  padding: 1em 0;
+}
+
+.selectedDescription ul {
+  list-style-type: lower-roman;
+  background: var(--navBlue);
+}
+
+.selectedDescription ul li {
+  padding: 0.5em;
+}
+
+.selectedDescription ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.selectedDestinationDiv form {
+  font-size: 1.2em;
+  padding: 0.5em 0;
+}
+
+.selectedDestinationDiv select, input {
+  border: 0.2em solid var(--titleBlue);
+  background: var(--navBlue);
+  padding: 0.4em;
+  color: white;
+  font-size: 1em;
+}
+
+.locationsDiv {
+  display: none;
+  color: white;
+  text-align: left;
+  width: 100%;
+  font-size: 1em;
+}
+
+.locationsDiv ul {
+  list-style-type: none;
+  display: table;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.locationsDiv ul li:first-child {
+  text-align: center;
+}
+
+.locationsDiv ul li:first-child span:first-child  {
+  cursor: pointer;
+}
+
+.locationsDiv ul li:first-child span:nth-child(2) {
+  cursor: pointer;
+}
+
+.locationsDiv ul li {
+  display: table-row;
+  vertical-align: middle;
+}
+
+.locationsDiv ul li span {
+  display: table-cell;
+  padding: 1.5em 0.5em;
+}
+
+.locationsDiv ul li button {
+  display: table-cell;
+  padding: 0.2em 0.2em;
+}
+
+.recommendedDiv {
+  display: none;
+  color: white;
+  text-align: left;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.recommendedTopContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.recommendedTopContainerButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.recommendedTopContainerButtons button{
+  font-size: 1em;
+}
+
+.hide {
+  display: none;
+}
+
+.recommendedDiv .question {
+  font-size: 1em;
+  padding: 0 0 0.5em 0;
+}
+
+.recommendedDiv form {
+  padding: 0.5em 0.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.recommendedDiv label {
+  padding: 0 0.2em;
+}
+
+.recommendedDiv input {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+}
+
+.missingAnswer {
+  background: var(--navBlue);
+}
+
+.aboutDiv {
+  display: none;
+  color: white;
+  text-align: left;
+  width: 100%;
+  font-size: 1em;
+}
+
+.aboutDiv a {
+  padding: 0.5em;
+  color: white;
+  text-decoration: none;
+  background: var(--navBlue);
+}
+
+footer {
+  padding: 10px 20px;
+  background: var(--titleBlue);
+  color: white;
+  text-align: center;
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 2px 2px 4px #000000; }
+  50% { text-shadow: 2px 2px 4px #000000, 0 0 30px #D4C66A; }
+  100% { text-shadow: 2px 2px 4px #000000, 0 0 60px #D4C66A; }
+}
+
+
+/* TABLET STYLES */
+
+@media screen and (min-width: 500px) {
+
+  /* applies to screens wider than 499px */
+
+  .heading h1 {
+    font-size: 2.5em;
+  }
+
+  .heading .menu-button {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  nav a { 
+	border-bottom: 4px solid var(--hoverPink); 
+	transition: all 1.5s ease-in-out;
+  }
+
+  nav a:hover, nav a:focus, nav a:active { 
+    background: var(--hoverPink);
+	border-bottom: 4px solid var(--navBlue); 
+	transform: translateY(4px);
+  }
+
+  .selectedNav { 
+    background: var(--hoverPink);
+    border-bottom: 4px solid var(--navBlue); 
+	transform: translateY(4px);
+  }
+
+  button { 
+    transition: all 1.5s; 
+  }
+
+  button:hover {
+    background: var(--hoverPink); 
+  }
+
+  figure img { 
+    transition: all 2s; 
+  }
+
+  figure:hover img {
+    opacity: 0; 
+  }
+
+  figcaption span.tags { 
+    transition: all 1s; 
+  }
+
+  figure:hover .tags { 
+    opacity: 1; 
+  }
+
+  figcaption .destDesc { 
+    transition: all 1s; 
+  }
+
+  figure:hover .destDesc { 
+    opacity: 1; 
+  }
+
+  figure:hover .title {
+    opacity: 0; 
+  }
+
+  figure:hover figcaption {
+    background: none; 
+  }
+  
+  .selectedDescription ul li { 
+    transition: all 1.5s; 
+  }
+
+  .selectedDescription ul li:hover {
+    background: var(--hoverPink); 
+  }
+
+  .locationsDiv {
+    font-size: 1.2em;
+  }
+
+  .aboutDiv a { 
+    transition: all 1.5s; 
+  }
+
+  .aboutDiv a:hover {
+    background: var(--hoverPink); 
+  }
+
+  main {
+    margin: 0em 4em;
+  }
+  
+}
+
+
+/* DESKTOP STYLES */
+
+@media screen and (min-width: 1000px) {
+
+  /* applies to screens wider than 999px */
+
+  nav a {
+    padding: 1em 2em;
+  }
+
+  .recommendedTopContainerButtons{ 
+    flex-direction: row; 
+  }
+
+  .recommendedDiv form {
+    flex-direction: row;
+  }
+    
+  main {
+    margin: 0em 8em;
+  }
+
+}
